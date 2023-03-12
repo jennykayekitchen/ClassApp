@@ -7,7 +7,7 @@ export const NavBar = () => {
     const localClassAppUser = localStorage.getItem("class_app_user")
     const ClassAppUserObject = JSON.parse(localClassAppUser)
 
-    if (honeyUserObject.admin) {
+    if (ClassAppUserObject.admin) {
         return <AdminNav />
     }
     else {

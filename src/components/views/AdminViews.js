@@ -2,10 +2,11 @@ import { Outlet, Route, Routes } from "react-router-dom"
 import { GenerateSavedList } from "../GenerateSavedList/GenerateSavedList"
 import { MeetUpList } from "../MeetUps/MeetUpList"
 import { NewMeetUpForm } from "../MeetUpForm/NewMeetUpForm"
+import { ManageMeetUps } from "../MeetUps/ManageMeetUp"
 
 
 
-export const UserViews = () => {
+export const AdminViews = () => {
 	return (
         <Routes>
             <Route path="/" element={
@@ -17,12 +18,11 @@ export const UserViews = () => {
             }>
 
                 <Route path="" element={ <MeetUpList /> } />
-                <Route path="" element={ <NewMeetUpForm /> } />
-                <Route path="" element={ <GenerateSavedList /> } />
+                <Route path="/newmeetup" element={ <NewMeetUpForm /> } />
+                <Route path="/viewsaved" element={ <GenerateSavedList /> } />
+                <Route path="/managemeetups" element={ <ManageMeetUps /> } />
                 
             </Route>
         </Routes>
     )
 }
-
-//
