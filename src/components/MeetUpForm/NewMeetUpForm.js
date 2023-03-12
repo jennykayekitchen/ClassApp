@@ -66,7 +66,7 @@ export const NewMeetUpForm = () => {
             userId: ClassAppUserObject.id
         }
         //POST fetch call that sends the meetup object to save in the database then navigates back to the list of tags when that's done
-        return fetch(`http://localhost:8088/meetups`, {
+        return fetch('http://localhost:8088/meetups', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

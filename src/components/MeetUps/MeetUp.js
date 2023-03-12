@@ -6,6 +6,7 @@ export const MeetUp = () => {
     const ClassAppUserObject = JSON.parse(localClassAppUser)
     
     return <>
+    <h2>yoooooo</h2>
     </>
     
                     

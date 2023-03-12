@@ -21,7 +21,7 @@ export const UserNav = () => {
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/">View Saved Meet Up</Link>
             </li>
-
+          
             {
                 localStorage.getItem("class_app_user")
                     ? <li className="navbar__item navbar__logout">
