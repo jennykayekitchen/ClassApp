@@ -1,7 +1,7 @@
 import { Outlet, Route, Routes } from "react-router-dom"
 import { GenerateSavedList } from "../GenerateSavedList/GenerateSavedList"
 import { MeetUpList } from "../MeetUps/MeetUpList"
-import { NewMeetUpForm } from "../MeetUpForm/NewTagForm"
+import { NewMeetUpForm } from "../MeetUpForm/NewMeetUpForm"
 
 
 
