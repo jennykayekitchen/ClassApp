@@ -9,6 +9,12 @@
       "fullName": "Jenny Kitchen",
       "email": "jennykayekitchen@gmail.com",
       "isAdmin": true
+    },
+    {
+        "id": 2,
+        "fullName": "Shane Hurtado",
+        "email": "mhurtado1@berklee.edu",
+        "isAdmin": false
     }
 ],
 "neighborhoods": [
