@@ -1,50 +1,64 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Form, Label } from "reactstrap";
+// import { Form, Label } from "reactstrap";
 
-export const GearEdit = () => {
-  const [gear, updateGear] = useState({
-    name: "",
-    imageUrl: "",
-    brand: "",
-    description: "",
-    artistUsingGear: "",
-    demonstration: "",
-    typeId: 0,
-    price: "",
-  });
+export const EditMeetUp = () => {
+    const [meetup, update] = useState({
+        "title": "",
+        "typeId": null,
+        "venue": "",
+        "address": "",
+        "neighborhoodId": null,
+        "link": "",
+        "date": null,
+        "time": null,
+        "isSaved": false,
+        "description": "",
+        "userId": null,
+    })
 
-  const [ types, updateType ] = useState([]);
+  const [ types, setType ] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:8088/type")
+      .then((res) => res.json())
+      .then((typeData) => {
+        setType(typeData);
+      });
+  }, []);
 
-  const { gearId } = useParams();
+  const { meetUpId } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:8088/gears/${gearId}`)
+    fetch(`http://localhost:8088/meetups/${meetUpId}`)
       .then((response) => response.json())
       .then((data) => {
-        updateGear(data);
+        update(data);
       });
-  }, [gearId]);
+  }, [meetUpId]);
 
+  const [neighborhoods, setNeighborhoods] = useState([])
   useEffect(() => {
-    fetch("http://localhost:8088/types")
-      .then((res) => res.json())
-      .then((typeData) => {
-        updateType(typeData);
-      });
-  }, []);
+      fetch('http://localhost:8088/neighborhoods')
+          .then((res) => res.json())
+          .then((data) => {
+              setNeighborhoods(data)
+          })
+  },
+      []
+  )
+
 
   const handleSaveButtonClick = (event) => {
     event.preventDefault();
 
     return (
-      fetch(`http://localhost:8088/gears/${gear.id}`, {
+      fetch(`http://localhost:8088/meetups/${meetUpId.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(gear),
+        body: JSON.stringify(meetup),
       })
         .then((response) => response.json())
         .then(() => {
@@ -54,179 +68,193 @@ export const GearEdit = () => {
   };
 
   return (
-    <Form className="GearForm">
-      <h3 className="gearForm__title"></h3>
-      <div className="borderThis">
-      <div className="insideBorderTwo">
-      <fieldset className="smallerFieldSet">
-        <div className="form-group">
-          <Label htmlFor="name">Name:</Label>
-          <textarea
-            required
-            autoFocus
-            type="text"
-            className="form-control"
-            value={gear.name}
-            onChange={(event) => {
-              const copy = { ...gear };
-              copy.name = event.target.value;
-              updateGear(copy);
-            }}
-          >
-            {" "}
-            {gear.name}{" "}
-          </textarea>
-        </div>
-      </fieldset>
-      <fieldset className="smallerFieldSet">
-        <div className="form-group">
-          <Label htmlFor="imageUrl">Image:</Label>
-          <textarea
-            required
-            autoFocus
-            type="text"
-            className="form-control"
-            value={gear.imageUrl}
-            onChange={(event) => {
-              const copy = { ...gear };
-              copy.imageUrl = event.target.value;
-              updateGear(copy);
-            }}
-          >
-            {" "}
-            {gear.imageUrl}
-          </textarea>
-        </div>
-      </fieldset>
-      <fieldset className="smallerFieldSet">
-        <div className="form-group">
-          <Label htmlFor="brand">Brand:</Label>
-          <textarea
-            required
-            autoFocus
-            type="text"
-            className="form-control"
-            value={gear.brand}
-            onChange={(event) => {
-              const copy = { ...gear };
-              copy.brand = event.target.value;
-              updateGear(copy);
-            }}
-          >
-            {gear.brand}
-          </textarea>
-        </div>
-      </fieldset>
-      <fieldset className="smallerFieldSet">
-        <div className="form-group">
-          <Label htmlFor="description">Description:</Label>
-          <textarea
-            required
-            autoFocus
-            type="text"
-            className="form-control"
-            value={gear.description}
-            onChange={(event) => {
-              const copy = { ...gear };
-              copy.description = event.target.value;
-              updateGear(copy);
-            }}
-          >
-            {gear.description}
-          </textarea>
-        </div>
-      </fieldset>
-      <fieldset className="smallerFieldSet">
-        <div className="form-group">
-          <Label htmlFor="artistUsing">Artist That Uses This Gear :</Label>
-          <textarea
-            required
-            autoFocus
-            type="text"
-            className="form-control"
-            value={gear.artistUsingGear}
-            onChange={(event) => {
-              const copy = { ...gear };
-              copy.artistUsingGear = event.target.value;
-              updateGear(copy);
-            }}
-          >
-            {gear.artistUsingGear}
-          </textarea>
-        </div>
-      </fieldset>
-      <fieldset className="smallerFieldSet">
-        <div className="form-group">
-          <Label htmlFor="demonstration">Demonstration:</Label>
-          <textarea
-            required
-            autoFocus
-            type="text"
-            className="form-control"
-            value={gear.demonstration}
-            onChange={(event) => {
-              const copy = { ...gear };
-              copy.demonstration = event.target.value;
-              updateGear(copy);
-            }}
-          >
-            {gear.demonstration}
-          </textarea>
-        </div>
-      </fieldset>
- 
-      <fieldset className="smallerFieldSet" id="centerThis">
-      <div className="form-group">
-  <div className="typeLabel">Type: </div>
-  {types.map((typeObj) => {
-    return (
-      <div key={typeObj.id} className="radio">
-        <Label>
-          <input
-            type="radio"
-            value={typeObj.id}
-            checked={gear.typeId === typeObj.id}
-            onChange={(event) => {
-              const copy = { ...gear }
-              copy.typeId = parseInt(event.target.value)
-              updateGear(copy)
-            }}
-          />
-          {typeObj.type}
-        </Label>
-      </div>
-    )
-  })}
-</div>
-</fieldset>  
-
-      <fieldset className="smallerFieldSet">
-        <div className="form-group">
-          <Label htmlFor="price">Price:</Label>
-          <textarea
-            required
-            autoFocus
-            type="number"
-            className="form-control"
-            value={gear.price}
-            onChange={(event) => {
-              const copy = { ...gear };
-              copy.price = event.target.value;
-              updateGear(copy);
-            }}
-          >
-            {gear.price}
-          </textarea>
-        </div>
-      </fieldset>
-      </div>
-      </div>
-      <button
-        onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-        className="btn btn-primary form-Btn"
-      >
-        Save Edits
-      </button>
-    </Form>
-  );
-};
+    <form className="meetUpForm">
+        <h2 className="meetupForm__title">Add a New Meet Up</h2>
+        <fieldset>
+            <div className="form-group">
+                <label htmlFor="meetuptitle"><div className="meetuplabel">Meetup Title:</div></label>
+                {/* creates text box for user to input the name of their meetup, then assigns that as meetup.title */}
+                <input
+                    required autoFocus
+                    type="text"
+                    className="form-control"
+                    placeholder="What's the vibe?"
+                    value={meetup.title}
+                    onChange={
+                        (event) => {
+                            const copy = { ...meetup }
+                            copy.title = event.target.value
+                            update(copy)
+                        }
+                    } />
+            </div>
+        </fieldset>
+        <fieldset>
+            <div className="form-group">
+                <div>
+                    Meetup Type:
+                    {types.map((type) => {
+                        return (
+                            <div key={type.id} className="radio">
+                                <label>
+                                    <input
+                                        type="radio"
+                                        name="type"
+                                        value={type.id}
+                                        checked={meetup.typeId === type.id} // The checked attribute accepts a true of false value. Here we say this should be checked if the userChoices.seasonId matched the id of the season this radio button represents
+                                        onChange={(event) => {
+                                            const copy = { ...meetup }
+                                            copy.typeId = parseInt(event.target.value)
+                                            update(copy)
+                                        }}
+                                    />
+                                    {type.name}
+                                </label>
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <div className="form-group">
+                <label htmlFor="meetupvenue"><div className="meetuplabel">Venue:</div></label>
+                <input
+                    required autoFocus
+                    type="text"
+                    className="form-control"
+                    placeholder="Where are we meeting?"
+                    value={meetup.venue}
+                    onChange={
+                        (event) => {
+                            const copy = { ...meetup }
+                            copy.venue = event.target.value
+                            update(copy)
+                        }
+                    } />
+            </div>
+        </fieldset>
+        <fieldset>
+            <div className="form-group">
+                <label htmlFor="meetupaddress"><div className="meetuplabel">Address:</div></label>
+                <input
+                    required autoFocus
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter the street address"
+                    value={meetup.address}
+                    onChange={
+                        (event) => {
+                            const copy = { ...meetup }
+                            copy.address = event.target.value
+                            update(copy)
+                        }
+                    } />
+            </div>
+        </fieldset>
+        <fieldset>
+            <div className="form-group">
+                <label htmlFor="meetupvenue"><div className="meetuplabel">Link to Venue:</div></label>
+                <input
+                    required autoFocus
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter a link for the venue"
+                    value={meetup.link}
+                    onChange={
+                        (event) => {
+                            const copy = { ...meetup }
+                            copy.link = event.target.value
+                            update(copy)
+                        }
+                    } />
+            </div>
+        </fieldset>
+        <fieldset>
+            <div className="form-group">
+                <div>
+                    Neighborhood:
+                    {neighborhoods.map((neighborhoods) => {
+                        return (
+                            <div key={neighborhoods.id} className="radio">
+                                <label>
+                                    <input
+                                        type="radio"
+                                        name="neighborhoods"
+                                        value={neighborhoods.id}
+                                        checked={meetup.neighborhoodId === neighborhoods.id} // The checked attribute accepts a true of false value. Here we say this should be checked if the userChoices.seasonId matched the id of the season this radio button represents
+                                        onChange={(event) => {
+                                            const copy = { ...meetup }
+                                            copy.neighborhoodId = parseInt(event.target.value)
+                                            update(copy)
+                                        }}
+                                    />
+                                    {neighborhoods.name}
+                                </label>
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <div className="form-group">
+                <label htmlFor="meetupdate"><div className="meetuplabel">Date:</div></label>
+                <input
+                    required autoFocus
+                    type="date"
+                    className="form-control"
+                    value={meetup.date}
+                    onChange={
+                        (event) => {
+                            const copy = { ...meetup }
+                            copy.date = event.target.value
+                            update(copy)
+                        }
+                    } />
+            </div>
+        </fieldset>
+        <fieldset>
+            <div className="form-group">
+                <label htmlFor="meetuptime"><div className="meetuplabel">Time:</div></label>
+                <input
+                    required autoFocus
+                    type="time"
+                    className="form-control"
+                    value={meetup.time}
+                    onChange={
+                        (event) => {
+                            const copy = { ...meetup }
+                            copy.time = event.target.value
+                            update(copy)
+                        }
+                    } />
+            </div>
+        </fieldset>
+        <fieldset>
+            <div className="form-group">
+                <label htmlFor="meetupdescription"><div className="meetuplabel">Description:</div></label>
+                {/* creates text box for user to input the name of their meetup, then assigns that as meetup.title */}
+                <input
+                    required autoFocus
+                    type="text"
+                    className="form-control"
+                    placeholder="What are we doing?"
+                    value={meetup.description}
+                    onChange={
+                        (event) => {
+                            const copy = { ...meetup }
+                            copy.description = event.target.value
+                            update(copy)
+                        }
+                    } />
+            </div>
+        </fieldset>
+        <button 
+            onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
+            className="btn btn-primary">
+            Save Mood
+        </button>
+    </form>
+ )
+}
