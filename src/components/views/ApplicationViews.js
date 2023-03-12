@@ -1,4 +1,6 @@
+import { AdminViews } from "./AdminViews"
 import { UserViews } from "./UserViews"
+
 
 export const ApplicationViews = () => {
 
@@ -6,7 +8,7 @@ export const ApplicationViews = () => {
     const ClassAppUserObject = JSON.parse(localClassAppUser)
 
     if (ClassAppUserObject.admin) {
-        return "Under Construction"
+        return <AdminViews />
     }
     else {
         return <UserViews />
