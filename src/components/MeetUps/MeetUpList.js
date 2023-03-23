@@ -15,6 +15,8 @@ export const MeetUpList = () => {
         },
         []
     )
+
+    
     //renders the list of all meet-ups
     return <>
         <em className="songlist_tape"></em>
