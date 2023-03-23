@@ -17,7 +17,7 @@ export const AdminViews = () => {
                 </>
             }>
 
-                <Route path="" element={ <MeetUpList /> } />
+                <Route path="/" element={ <MeetUpList /> } />
                 <Route path="/newmeetup" element={ <NewMeetUpForm /> } />
                 <Route path="/viewsaved" element={ <GenerateSavedList /> } />
                 <Route path="/managemeetups" element={ <ManageMeetUps /> } />

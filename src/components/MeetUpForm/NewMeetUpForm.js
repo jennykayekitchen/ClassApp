@@ -75,7 +75,7 @@ export const NewMeetUpForm = () => {
         })
             .then(response => response.json())
             .then(() => {
-                navigate("/")
+                navigate("/managemeetups")
             })
     }
 
@@ -195,7 +195,7 @@ export const NewMeetUpForm = () => {
                                             type="radio"
                                             name="neighborhoods"
                                             value={neighborhoods.id}
-                                            checked={meetup.neighborhoodId === neighborhoods.id} // The checked attribute accepts a true of false value. Here we say this should be checked if the userChoices.seasonId matched the id of the season this radio button represents
+                                            checked={meetup.neighborhoodId === neighborhoods.id}
                                             onChange={(event) => {
                                                 const copy = { ...meetup }
                                                 copy.neighborhoodId = parseInt(event.target.value)
@@ -247,7 +247,6 @@ export const NewMeetUpForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="meetupdescription"><div className="meetuplabel">Description:</div></label>
-                    {/* creates text box for user to input the name of their meetup, then assigns that as meetup.title */}
                     <input
                         required autoFocus
                         type="text"
