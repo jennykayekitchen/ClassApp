@@ -19,6 +19,8 @@ export const MeetUpList = () => {
     return <>
         <em className="songlist_tape"></em>
                 <div>{meetups.map(meetup => <MeetUp key={`meetup--${meetup.id}`} 
+                meetups = {meetups}
+                setMeetups = {setMeetups}
                 meetupId={meetup.id}
                 meetupTitle={meetup.title}
                 meetupType={meetup.type}
@@ -29,6 +31,7 @@ export const MeetUpList = () => {
                 meetupDate={meetup.date}
                 meetupTime={meetup.time}
                 meetupDescription={meetup.description}
+                meetupUserId={meetup.userId}
                 />
                 )}         
                         
