@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { IndividualMeetUp } from "./IndividualMeetUp"
+import { IndividualMeetUpForList } from "./IndividualMeetUpForList"
 import "./Meetup.css"
 
 export const MeetUpList = () => {
@@ -15,11 +15,12 @@ export const MeetUpList = () => {
         },
         []
     )
-
+    
+    
     
     //renders the list of all meet-ups
     return <>
-        <div className="meetup-list">{meetups.map(meetup => <IndividualMeetUp key={`meetup--${meetup.id}`} 
+        <div className="meetup-list">{meetups.map(meetup => <IndividualMeetUpForList key={`meetup--${meetup.id}`} 
                 meetups = {meetups}
                 setMeetups = {setMeetups}
                 meetupId={meetup.id}

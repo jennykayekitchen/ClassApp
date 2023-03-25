@@ -24,6 +24,7 @@ export const NewMeetUpForm = () => {
         "description": "",
         "userId": null,
     })
+    
 
     const [type, setType] = useState([])
     useEffect(() => {
