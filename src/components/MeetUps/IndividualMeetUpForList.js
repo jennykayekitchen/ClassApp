@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import "./Meetup.css"
 
-export const IndividualMeetUp = ({ meetupUserId, meetupAddress, meetupDescription, meetupDate, meetupTime, meetupTitle, meetupLink, meetupVenue, meetupNeighborhood, MeetupType }) => {
+export const IndividualMeetUpForList = ({ meetupUserId, meetupAddress, meetupDescription, meetupDate, meetupTime, meetupTitle, meetupLink, meetupVenue, meetupNeighborhood, MeetupType }) => {
 
     return <>        
             <div className="individual-meetup">
