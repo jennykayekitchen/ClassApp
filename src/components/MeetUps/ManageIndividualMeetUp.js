@@ -1,6 +1,7 @@
 import {  useEffect, useState } from "react"
+import "./Meetup.css"
 
-export const MeetUp = ({ meetups, setMeetups, meetupId, meetupUserId, meetupAddress, meetupDescription, meetupDate, meetupTime, meetupTitle, meetupLink, meetupVenue, meetupNeighborhood, MeetupType }) => {
+export const ManageIndividualMeetUp = ({ meetups, setMeetups, meetupId, meetupUserId, meetupAddress, meetupDescription, meetupDate, meetupTime, meetupTitle, meetupLink, meetupVenue, meetupNeighborhood, MeetupType }) => {
     // says whether or not the meetup is in "edit" mode, set to false when the page loads and will turn to true if user clicks Update Meetup
     const [editMode, setEditMode] = useState(false)
     
@@ -131,7 +132,7 @@ export const MeetUp = ({ meetups, setMeetups, meetupId, meetupUserId, meetupAddr
     const ClassAppUserObject = JSON.parse(localClassAppUser)
     
     return <>
-    <div>
+    <div className="individual-meetup">
         {editMode ? (
             <>
             <div>

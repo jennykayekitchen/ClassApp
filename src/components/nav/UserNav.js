@@ -16,7 +16,7 @@ export const UserNav = () => {
                 <Link className="navbar__link" to="/newmeetup">Add a New Meet Up</Link>
             </li>
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/managemeetups">Manage Meet Ups</Link>
+                <Link className="navbar__link" to="/managemeetups">Manage My Meet Ups</Link>
             </li>
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/">View Saved Meet Up</Link>
