@@ -19,7 +19,7 @@ export const AdminNav = () => {
                 <Link className="navbar__link" to="/managemeetups">Manage All Meet Ups</Link>
             </li>
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/viewsaved">View Saved Meet Up</Link>
+                <Link className="navbar__link" to="/viewsaved">View Saved Meet Ups</Link>
             </li>
       
 
