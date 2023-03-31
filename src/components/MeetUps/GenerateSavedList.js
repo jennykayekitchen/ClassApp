@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { MeetUp } from "./MeetUp";
+import { IndividualMeetUpForList } from "./IndividualMeetUpForList"
 import { useNavigate } from "react-router-dom";
 
 export const GenerateSavedList = () => {
@@ -47,7 +47,7 @@ export const GenerateSavedList = () => {
     return (
         <div>
             <h2>Saved Meet Ups</h2>
-            <div>{mySavedMeetups.map(savedMeetup => <><MeetUp key={`meetup--${savedMeetup.meetup.id}`}
+            <div>{mySavedMeetups.map(savedMeetup => <><IndividualMeetUpForList key={`meetup--${savedMeetup.meetup.id}`}
                 meetups={mySavedMeetups}
                 setMeetups={setMySavedMeetups}
                 meetupId={savedMeetup.meetup.id}
