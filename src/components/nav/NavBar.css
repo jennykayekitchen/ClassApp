@@ -1,15 +1,15 @@
 .navbar {
+    border: 1px solid black;
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: left;
+    list-style-type: none;
+    justify-content: space-evenly;
 }
 
 .navbar__item {
-    flex-basis: 20%;
-    list-style-type: none;
+    border: 1px solid black;
 }
 
 .navbar__logout {
-    margin-left: auto;
+    border: 1px solid black;
 }
 

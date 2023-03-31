@@ -24,6 +24,7 @@ export const NewMeetUpForm = () => {
         "description": "",
         "userId": null,
     })
+    
 
     const [type, setType] = useState([])
     useEffect(() => {
@@ -265,7 +266,7 @@ export const NewMeetUpForm = () => {
             <button 
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
                 className="btn btn-primary">
-                Save Mood
+                Save Meetup
             </button>
         </form>
     )

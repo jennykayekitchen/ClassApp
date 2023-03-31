@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { MeetUp } from "./MeetUp"
+import { ManageIndividualMeetUp } from "./ManageIndividualMeetUp"
+import "./Meetup.css"
 
 export const ManageMeetUps = () => {
     //gets the user info
@@ -27,7 +28,7 @@ export const ManageMeetUps = () => {
     return (
         <div>
         <h2>Manage My Meet Ups</h2>
-            <div>{myMeetups.map(meetup => <MeetUp key={`meetup--${meetup.id}`} 
+            <div className="meetup-list">{myMeetups.map(meetup => <ManageIndividualMeetUp key={`meetup--${meetup.id}`} 
                 meetups = {meetups}
                 setMeetups = {setMeetups}
                 meetupId={meetup.id}
