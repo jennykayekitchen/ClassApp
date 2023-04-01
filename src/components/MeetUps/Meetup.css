@@ -1,7 +1,40 @@
-.individual-meetup {
-    border: 1px solid black;
+.head-name {
+    margin-top: 50px;
+    font-family: 'Spicy Rice', cursive;
+    font-size: 36px;
+    text-align: center;
+    color: #1B4079;
+    text-shadow: 2px 2px 5px grey;
 }
 
+.individual-meetup {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: 5px;
+    justify-content: space-between;
+    background-color: #1B4079;
+    color: white;
+    box-shadow: 2px 2px 5px grey;;
+}
+.meetup-title {
+    text-align: center;
+    font-family: 'Spicy Rice', cursive;
+}
+
+.meetup-info-title {
+    font-weight: bold;
+}
+
+.meetup-info {
+    padding: 10px;
+}
+.meetup-save {
+
+}
 .meetup-list {
-    border: 1px solid black;
+    margin-top: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
