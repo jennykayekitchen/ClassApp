@@ -1,15 +1,49 @@
-.navbar {
-    border: 1px solid black;
+.navbar {    
+    top: 0;
+    left: 0;
+    right:0;
     display: flex;
-    list-style-type: none;
-    justify-content: space-evenly;
+    background-color: #1B4079;
+    justify-content: space-between;
+    height: 50px;
+    /* padding-right: 10px; */
+    position: fixed;
+    margin: 0;
+    box-shadow: 2px 2px 5px grey;
 }
 
-.navbar__item {
-    border: 1px solid black;
+.navbar-logo {
+    font-family: 'Spicy Rice', cursive;
+    font-size: 30px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-links {
+    display: flex;
+    list-style-type: none;
+    justify-content: right;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Barlow', sans-serif;
+    font-size: 12px;
+}
+.navbar__item {   
+    padding: 8px;
+    align-items: center;
+    display: flex;
+
+}
+
+.navbar__item:hover {
+    background-color: #2862B8;
 }
 
 .navbar__logout {
-    border: 1px solid black;
+    margin-right: 8px;
 }
 

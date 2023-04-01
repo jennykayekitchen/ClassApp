@@ -28,6 +28,27 @@ export const ManageMeetUps = () => {
     return (
         <div>
         <h2>Manage My Meet Ups</h2>
+            {ClassAppUserObject.admin ? (
+                <div className="meetup-list">{meetups.map(meetup => <ManageIndividualMeetUp key={`meetup--${meetup.id}`} 
+                meetups = {meetups}
+                setMeetups = {setMeetups}
+                meetupId={meetup.id}
+                meetupTitle={meetup.title}
+                meetupType={meetup.type}
+                meetupVenue={meetup.venue}
+                meetupAddress={meetup.address}
+                meetupLink={meetup.link}
+                meetupNeighborhood={meetup.neighborhood}
+                meetupDate={meetup.date}
+                meetupTime={meetup.time}
+                meetupDescription={meetup.description}
+                meetupUserId={meetup.userId}
+                />
+                )}         
+                        
+                </div> 
+            )
+            : (
             <div className="meetup-list">{myMeetups.map(meetup => <ManageIndividualMeetUp key={`meetup--${meetup.id}`} 
                 meetups = {meetups}
                 setMeetups = {setMeetups}
@@ -46,6 +67,7 @@ export const ManageMeetUps = () => {
                 )}         
                         
                 </div> 
+            )}
         </div>
     );
 };

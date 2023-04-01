@@ -3,6 +3,7 @@ import { GenerateSavedList } from "../MeetUps/GenerateSavedList"
 import { MeetUpList } from "../MeetUps/MeetUpList"
 import { NewMeetUpForm } from "../MeetUpForm/NewMeetUpForm"
 import { ManageMeetUps } from "../MeetUps/ManageMeetUps"
+import "./Views.css"
 //import { EditMeetUp } from "../MeetUps/EditMeetUpForm"
 
 
@@ -13,8 +14,7 @@ export const AdminViews = () => {
         <Routes>
             <Route path="/" element={
                 <>
-                    <h1>The Class App</h1>
-
+                    
                     <Outlet />
                 </>
             }>
