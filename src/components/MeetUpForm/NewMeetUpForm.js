@@ -1,6 +1,7 @@
 import { type } from "@testing-library/user-event/dist/type"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import "./Form.css"
 
 export const NewMeetUpForm = () => {
     //Using the useNavigation() hook so you can redirect the user at a specific time in a function
@@ -81,9 +82,11 @@ export const NewMeetUpForm = () => {
     }
 
     //new meet up form
-    return (
-        <form className="meetUpForm">
-            <h2 className="meetupForm__title">Add a New Meet Up</h2>
+    return <>
+            <div className="head-name">
+                <h1>Add a New Meet Up</h1>
+            </div>
+            <form className="meetUpForm">
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="meetuptitle"><div className="meetuplabel">Meetup Title:</div></label>
@@ -269,5 +272,5 @@ export const NewMeetUpForm = () => {
                 Save Meetup
             </button>
         </form>
-    )
+    </>
 }
