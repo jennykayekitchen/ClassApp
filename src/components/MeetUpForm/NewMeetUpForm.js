@@ -59,7 +59,7 @@ export const NewMeetUpForm = () => {
             typeId: meetup.typeId,
             venue: meetup.venue,
             address: meetup.address,
-            neighborhood: meetup.neighborhoodId,
+            neighborhoodId: meetup.neighborhoodId,
             link: meetup.link,
             date: meetup.date,
             time: meetup.time,
