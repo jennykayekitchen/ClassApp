@@ -9,7 +9,7 @@ export const MeetUpList = () => {
     const [meetups, setMeetups] = useState([])
     useEffect(
         () => {
-            fetch(`http://localhost:8088/meetups`)
+            fetch(`http://localhost:8088/meetups?_expand=user&_expand=type&_expand=neighborhood`)
                 .then(response => response.json())
                 .then((data) => {
                     setMeetups(data)
@@ -66,23 +66,13 @@ export const MeetUpList = () => {
         <div className="head-name">
             <h1>All Meetups</h1>
         </div>
+        {/* sends info for each individual meetup to the module so that it has access to the info */}
         <div className="meetup-list">{meetups.map(meetup => 
             <>
                 <div className="individual-meetup"><IndividualMeetUpForList key={`meetup--${meetup.id}`} 
-                    meetups = {meetups}
-                    setMeetups = {setMeetups}
-                    meetupId={meetup.id}
-                    meetupTitle={meetup.title}
-                    meetupType={meetup.type}
-                    meetupVenue={meetup.venue}
-                    meetupAddress={meetup.address}
-                    meetupLink={meetup.link}
-                    meetupNeighborhood={meetup.neighborhood}
-                    meetupDate={meetup.date}
-                    meetupTime={meetup.time}
-                    meetupDescription={meetup.description}
-                    meetupUserId={meetup.userId}
+                    meetup = {meetup}
                     />
+                    {/*maps through the saved meetups and if the meetup is already*/}
                     {savedMeetups.some(savedMeetup => savedMeetup.meetupId === meetup.id)
                         ? <button disabled>Meetup Saved</button>
                         : <button
