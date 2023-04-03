@@ -20,7 +20,7 @@ export const ManageMeetUps = () => {
       
     useEffect(() =>{
         const userMeetups = meetups.filter(meetup => {
-            return meetup.userId == ClassAppUserObject.id
+            return meetup.userId === ClassAppUserObject.id
         })
         setMyMeetups(userMeetups)
     }, [meetups])
