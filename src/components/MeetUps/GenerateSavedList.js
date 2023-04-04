@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { IndividualMeetUpForList } from "./IndividualMeetUpForList"
+import { IndividualSavedMeetup } from "./IndividualSavedMeetup.js"
 import "./Meetup.css"
 
 export const GenerateSavedList = () => {
@@ -49,26 +49,14 @@ export const GenerateSavedList = () => {
             <div className="head-name">
                 <h1>Saved Meetups</h1>
             </div>
-            <div className="meetup-list">{mySavedMeetups.map(savedMeetup =>
+            <div className="meetup-list">{mySavedMeetups.map(mySavedMeetup =>
                 <>
-                    <div className="individual-meetup"><IndividualMeetUpForList key={`meetup--${savedMeetup.meetup.id}`}
-                        meetups={mySavedMeetups}
-                        setMeetups={setMySavedMeetups}
-                        meetupId={savedMeetup.meetup.id}
-                        meetupTitle={savedMeetup.meetup.title}
-                        meetupType={savedMeetup.meetup.type}
-                        meetupVenue={savedMeetup.meetup.venue}
-                        meetupAddress={savedMeetup.meetup.address}
-                        meetupLink={savedMeetup.meetup.link}
-                        meetupNeighborhood={savedMeetup.meetup.neighborhood}
-                        meetupDate={savedMeetup.meetup.date}
-                        meetupTime={savedMeetup.meetup.time}
-                        meetupDescription={savedMeetup.meetup.description}
-                        meetupUserId={savedMeetup.meetup.userId}
+                    <div className="individual-meetup"><IndividualSavedMeetup key={`meetup--${mySavedMeetup.meetup.id}`}
+                        mySavedMeetup={mySavedMeetup}
                     />
                         <button
                             onClick={(clickEvent) =>
-                                handleUnsave(clickEvent, savedMeetup)}
+                                handleUnsave(clickEvent, mySavedMeetup)}
                             className="meetup-saved-button">
                             Unsave Meetup
                         </button>
