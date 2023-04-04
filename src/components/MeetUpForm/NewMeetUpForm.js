@@ -1,4 +1,4 @@
-import { type } from "@testing-library/user-event/dist/type"
+//import { type } from "@testing-library/user-event/dist/type"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "./Form.css"
@@ -27,9 +27,9 @@ export const NewMeetUpForm = () => {
     })
     
 
-    const [type, setType] = useState([])
+    const [types, setType] = useState([])
     useEffect(() => {
-        fetch('http://localhost:8088/type')
+        fetch('http://localhost:8088/types')
             .then((res) => res.json())
             .then((data) => {
                 setType(data)
@@ -83,6 +83,7 @@ export const NewMeetUpForm = () => {
 
     //new meet up form
     return <>
+            <div className="form-page">
             <div className="head-name">
                 <h1>Add a New Meet Up</h1>
             </div>
@@ -110,7 +111,7 @@ export const NewMeetUpForm = () => {
                 <div className="form-group">
                     <div>
                         Meetup Type:
-                        {type.map((type) => {
+                        {types.map((type) => {
                             return (
                                 <div key={type.id} className="radio">
                                     <label>
@@ -254,7 +255,7 @@ export const NewMeetUpForm = () => {
                     <input
                         required autoFocus
                         type="text"
-                        className="form-control"
+                        className="form-description"
                         placeholder="What are we doing?"
                         value={meetup.description}
                         onChange={
@@ -272,5 +273,6 @@ export const NewMeetUpForm = () => {
                 Save Meetup
             </button>
         </form>
+        </div>
     </>
 }
