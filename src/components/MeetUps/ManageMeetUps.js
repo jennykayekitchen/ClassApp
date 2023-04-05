@@ -11,7 +11,7 @@ export const ManageMeetUps = () => {
     const [myMeetups, setMyMeetups] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:8088/meetups')
+        fetch('http://localhost:8088/meetups?_expand=user&_expand=type&_expand=neighborhood')
         .then(res => res.json())
         .then((meetupArray) => {
             setMeetups(meetupArray)
@@ -30,6 +30,7 @@ export const ManageMeetUps = () => {
         <h2>Manage My Meet Ups</h2>
             {ClassAppUserObject.admin ? (
                 <div className="meetup-list">{meetups.map(meetup => <ManageIndividualMeetUp key={`meetup--${meetup.id}`} 
+                meetup = {meetup}
                 meetups = {meetups}
                 setMeetups = {setMeetups}
                 meetupId={meetup.id}
@@ -50,6 +51,7 @@ export const ManageMeetUps = () => {
             )
             : (
             <div className="meetup-list">{myMeetups.map(meetup => <ManageIndividualMeetUp key={`meetup--${meetup.id}`} 
+                meetup = {meetup}
                 meetups = {meetups}
                 setMeetups = {setMeetups}
                 meetupId={meetup.id}

@@ -1,7 +1,34 @@
+.form-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .head-name {
     margin-top: 50px;
     font-family: 'Spicy Rice', cursive;
     text-align: center;
     color: #1B4079;
     text-shadow: 2px 2px 5px grey;
+}
+
+.meetUpForm {
+    background-color: #1B4079;
+    color: white;
+    padding: 5px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 2px 5px grey;    
+}
+
+fieldset {
+    border: 0;
+}
+
+.form-group {
+    border: none;
+}
+
+.form-description {
+    
 }
