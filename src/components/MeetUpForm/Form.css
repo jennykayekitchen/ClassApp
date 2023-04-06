@@ -13,22 +13,31 @@
 
 .meetUpForm {
     background-color: #1B4079;
-    color: white;
+    color: whitesmoke;
     padding: 5px;
     width: 50%;
     display: flex;
     flex-direction: column;
-    box-shadow: 2px 2px 5px grey;    
+    box-shadow: 2px 2px 5px grey;
+    border-radius: 2px;    
+}
+
+.meetuplabel {
+    font-weight: bold;
 }
 
 fieldset {
     border: 0;
+    
 }
 
 .form-group {
     border: none;
-}
-
-.form-description {
     
 }
+
+.form-control {
+    width: 100%;
+    border-radius: 2px;
+}
+

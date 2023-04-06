@@ -15,9 +15,10 @@
 .navbar-logo {
     font-family: 'Spicy Rice', cursive;
     font-size: 30px;
-    color: white;
+    color: whitesmoke;
     display: flex;
     align-items: center;
+    padding-top: 3px;
 }
 
 .navbar-links {
@@ -27,7 +28,7 @@
 }
 
 .navbar a {
-    color: white;
+    color: whitesmoke;
     text-decoration: none;
     font-family: 'Barlow', sans-serif;
     font-size: 12px;

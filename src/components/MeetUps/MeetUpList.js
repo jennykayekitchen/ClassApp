@@ -73,7 +73,7 @@ export const MeetUpList = () => {
                     meetup = {meetup}
                     />
                     {/*maps through the saved meetups and if the meetup is already*/}
-                    {savedMeetups.some(savedMeetup => savedMeetup.meetupId === meetup.id)
+                    {savedMeetups.some(savedMeetup => savedMeetup.meetupId === meetup.id && savedMeetup.userId === ClassAppUserObject.id)
                         ? <button disabled>Meetup Saved</button>
                         : <button
                             onClick={(clickEvent) => handleSave(clickEvent, meetup.id)}

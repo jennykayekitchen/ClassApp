@@ -34,7 +34,8 @@ export const Login = () => {
         <main className="container--login">
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Class App</h1>
+                    <div className="head-name"><h1>Class App</h1></div>
+                    <div className="login-box">
                     <h2>Please sign in</h2>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
@@ -50,6 +51,7 @@ export const Login = () => {
                             Sign in
                         </button>
                     </fieldset>
+                </div>
                 </form>
             </section>
             <section className="link--register">

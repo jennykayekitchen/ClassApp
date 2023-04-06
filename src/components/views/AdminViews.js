@@ -4,6 +4,7 @@ import { MeetUpList } from "../MeetUps/MeetUpList"
 import { NewMeetUpForm } from "../MeetUpForm/NewMeetUpForm"
 import { ManageMeetUps } from "../MeetUps/ManageMeetUps"
 import "./Views.css"
+import { Home } from "../Home/Home"
 //import { EditMeetUp } from "../MeetUps/EditMeetUpForm"
 
 
@@ -12,18 +13,17 @@ import "./Views.css"
 export const AdminViews = () => {
 	return (
         <Routes>
-            <Route path="/" element={
+            <Route path="/" element={ 
                 <>
-                    
+                
                     <Outlet />
                 </>
             }>
-
-                <Route path="/" element={ <MeetUpList /> } />
+                <Route path="/" element={<Home />} />
+                <Route path="/viewallmeetups" element={ <MeetUpList /> } />
                 <Route path="/newmeetup" element={ <NewMeetUpForm /> } />
                 <Route path="/viewsaved" element={ <GenerateSavedList /> } /> 
                 <Route path="/managemeetups" element={ <ManageMeetUps /> } />
-                {/* <Route path="/editmeetup" element={ <EditMeetUp /> } /> */}
                 
             </Route>
         </Routes>

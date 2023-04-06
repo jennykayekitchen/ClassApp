@@ -9,13 +9,12 @@ export const AdminNav = () => {
 
     //links across the nav bar for the user's view that go to the "home.com/example" which then renders that component
     return (
-        <ul className="navbar">
-            <div className="navbar-logo">
-                ClassApp
-            </div>
+        <ul className="navbar">            
+            <div><Link to="/"><div className="navbar-logo">ClassApp</div></Link></div>
+            
                 <div className="navbar-links">
                     <li className="navbar__item active">
-                        <Link className="navbar__link" to="/">View All Meet Ups</Link>
+                        <Link className="navbar__link" to="/viewallmeetups">View All Meet Ups</Link>
                     </li>
                     <li className="navbar__item active">
                         <Link className="navbar__link" to="/newmeetup">Add a New Meet Up</Link>
