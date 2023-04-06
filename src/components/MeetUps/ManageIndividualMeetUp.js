@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom"
 
 export const ManageIndividualMeetUp = ({ meetup, meetups, setMeetups, meetupId, }) => {
     const navigate = useNavigate()
-    
-    
+
+
     // says whether or not the meetup is in "edit" mode, set to false when the page loads and will turn to true if user clicks Update Meetup
     const [editMode, setEditMode] = useState(false)
 
@@ -55,7 +55,7 @@ export const ManageIndividualMeetUp = ({ meetup, meetups, setMeetups, meetupId, 
         setEditedTitle(event.target.value)
     }
 
-    const handleTypeChange = (event) => {
+    const handleTypeIdChange = (event) => {
         setEditedTypeId(event.target.value)
     }
 
@@ -75,7 +75,7 @@ export const ManageIndividualMeetUp = ({ meetup, meetups, setMeetups, meetupId, 
         setEditedAddress(event.target.value)
     }
 
-    const handleNeighborhoodChange = (event) => {
+    const handleNeighborhoodIdChange = (event) => {
         setEditedNeighborhoodId(event.target.value)
     }
 
@@ -140,21 +140,16 @@ export const ManageIndividualMeetUp = ({ meetup, meetups, setMeetups, meetupId, 
             },
             body: JSON.stringify(updatedMeetup)
         })
-        
             .then(() => {
-                //maps through the saved meetups in the database until it finds the matching Id, then updates that
-                //meetup with the new info
-                const updatedMeetups = meetups.map(meetup => {
-                    if (meetup.id === meetupId) {
-                        return updatedMeetup
-                    }
-                    return meetup
-                });
-                
-                setMeetups(updatedMeetups)
-                //exits edit mode and rerenders everthing
-                setEditMode(false)
+                // fetch the updated meetups from the server and update the state, then exit edit mode
+                return fetch('http://localhost:8088/meetups?_expand=user&_expand=type&_expand=neighborhood')
+                    .then(res => res.json())
+                    .then((data) => {
+                        setMeetups(data);
+                    })
+                    .then(setEditMode(false))
             })
+
     }
 
     //gets the user info
@@ -186,7 +181,7 @@ export const ManageIndividualMeetUp = ({ meetup, meetups, setMeetups, meetupId, 
                         <div>Time: {meetup.time}</div>
                         <input type="time"
                             value={editedTime}
-                            onchange={handleTimeChange} />
+                            onChange={handleTimeChange} />
                     </div>
                     <div>
                         <div>Location: {meetup.venue}</div>
@@ -204,85 +199,82 @@ export const ManageIndividualMeetUp = ({ meetup, meetups, setMeetups, meetupId, 
                         <div>Meetup Neighborhood: {meetup.neighborhood.name}</div>
                         <select
                             className="form-control"
-                            value={meetup.neighborhoodId}
-                            onChange={handleNeighborhoodChange}
+                            value={editedNeighborhoodId}
+                            onChange={handleNeighborhoodIdChange}
                         >
-                    <option value="0">Select Option</option>
-                    {neighborhoods.map(
-                        (neighborhood) => {
-                            return <option key={neighborhood.id} value={editedNeighborhoodId}>{neighborhood.name}</option>
-                        }
-                    )
-                    }
-                </select>
-        </div>
+                            <option value="0">Select Option</option>
+                            {neighborhoods.map(
+                                (neighborhood) => {
+                                    return <option key={neighborhood.id} value={neighborhood.id}>{neighborhood.name}</option>
+                                }
+                            )}
+                        </select>
+                    </div>
 
-        <div>Meetup Type: {meetup.type.name}</div>
-        {types.map((type) => {
-            return (
-                <div key={`type--${meetup.typeId}`} className="radio">
-                    <label>
-                        <input
-                            type="radio"
-                            name="type"
+                    <div>
+                        <div>Meetup Type: {meetup.type.name}</div>
+                        <select
+                            className="form-control"
                             value={editedTypeId}
-                            checked={meetup.typeId === type.id}
-                            onChange={handleTypeChange}
-                        />
-                        {type.name}
-                    </label>
-                </div>
-            )
-        })}
+                            onChange={handleTypeIdChange}
+                        >
+                            <option value="0">Select Option</option>
+                            {types.map(
+                                (type) => {
+                                    return <option key={type.id} value={type.id}>{type.name}</option>
+                                }
+                            )}
+                        </select>
+                    </div>
 
-        <div>
-            <div>Meetup Description: {meetup.description}</div>
-            <input type="text"
-                value={editedDescription}
-                onChange={handleDescriptionChange} />
-        </div>
-        <div>
-            <div>Venue Link: {meetup.link}</div>
-            <input type="text"
-                value={editedLink}
-                onChange={handleLinkChange} />
-        </div>
-    </>
+                    <div>
+                        <div>Meetup Description: {meetup.description}</div>
+                        <input type="text"
+                            value={editedDescription}
+                            onChange={handleDescriptionChange} />
+                    </div>
+                    <div>
+                        <div>Venue Link: {meetup.link}</div>
+                        <input type="text"
+                            value={editedLink}
+                            onChange={handleLinkChange} />
+                    </div>
+                </>
             )
                 : (
-    <>
-        <div className="meetup-title">{meetup.title}</div>
-        <div className="meetup-info">
-            <div><div className="meetup-info-title">Organizer:</div> {meetup?.user?.fullName} </div>
-            <div><div className="meetup-info-title">Date:</div> {meetup.date}</div>
-            <div><div className="meetup-info-title">Time:</div> {meetup.time}</div>
-            <div><div className="meetup-info-title">Location:</div> {meetup.venue}</div>
-            <div><div className="meetup-info-title">Address:</div> {meetup.address}</div>
-            <div><div className="meetup-info-title">Neighborhood:</div> {meetup?.neighborhood?.name}</div>
-            <div><div className="meetup-info-title">Meetup Type:</div> {meetup?.type?.name}</div>
-            <div><div className="meetup-info-title">Meetup Description:</div> {meetup.description}</div>
-            <div><div className="meetup-info-title">Venue Link:</div> {meetup.link}</div>
-        </div>
-    </>
-)}
-{
-    editMode ? (
-        <>
-            <div>
-                <button onClick={handleSaveChangesButtonClick}>Save Changes</button>
-                <button onClick={handleCancelEditClick}>Cancel</button>
-            </div>
-        </>
-    )
-        : (
-            <>
-                <div>
-                    <button onClick={handleEditClick}>Edit Meetup</button>
-                    <button onClick={handleDeleteButtonClick}>Delete Meetup</button>
-                </div>
-            </>
-        )
-}
+                    <>
+                        <div className="meetup-title">{meetup.title}</div>
+                        <div className="meetup-info">
+                            <div><div className="meetup-info-title">Organizer:</div> {meetup?.user?.fullName} </div>
+                            <div><div className="meetup-info-title">Date:</div> {meetup.date}</div>
+                            <div><div className="meetup-info-title">Time:</div> {meetup.time}</div>
+                            <div><div className="meetup-info-title">Location:</div> {meetup.venue}</div>
+                            <div><div className="meetup-info-title">Address:</div> {meetup.address}</div>
+                            <div><div className="meetup-info-title">Neighborhood:</div> {meetup?.neighborhood?.name}</div>
+                            <div><div className="meetup-info-title">Meetup Type:</div> {meetup?.type?.name}</div>
+                            <div><div className="meetup-info-title">Meetup Description:</div> {meetup.description}</div>
+                            <div><div className="meetup-info-title">Venue Link:</div> {meetup.link}</div>
+                        </div>
+                    </>
+                )}
+            {
+                editMode ? (
+                    <>
+                        <div>
+                            <button onClick={handleSaveChangesButtonClick}>Save Changes</button>
+                            <button onClick={handleCancelEditClick}>Cancel</button>
+                        </div>
+                    </>
+                )
+                    : (
+                        <>
+                            <div>
+                                <button onClick={handleEditClick}>Edit Meetup</button>
+                                <button onClick={handleDeleteButtonClick}>Delete Meetup</button>
+                            </div>
+                        </>
+                    )
+            }
         </div >
 
     </>

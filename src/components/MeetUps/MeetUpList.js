@@ -23,7 +23,7 @@ export const MeetUpList = () => {
     const [savedMeetups, setSavedMeetups] = useState([])
     useEffect(
         () => {
-            fetch(`http://localhost:8088/savedMeetup`)
+            fetch(`http://localhost:8088/savedMeetups`)
                 .then(response => response.json())
                 .then((data) => {
                     setSavedMeetups(data)
@@ -43,7 +43,7 @@ export const MeetUpList = () => {
                 }        
         
                 //sends the info to the database to save it
-                return fetch(`http://localhost:8088/savedMeetup`, {
+                return fetch(`http://localhost:8088/savedMeetups`, {
                     method: "POST",
                     headers: {
                         "Content-type": "application/json"
@@ -53,7 +53,7 @@ export const MeetUpList = () => {
                     .then(res => res.json())
                     .then(() => {
                         //pulls the savedMeetups from the database and updates that state
-                        fetch(`http://localhost:8088/savedMeetup`)
+                        fetch(`http://localhost:8088/savedMeetups`)
                             .then(response => response.json())
                             .then((data) => {
                                 setSavedMeetups(data)
