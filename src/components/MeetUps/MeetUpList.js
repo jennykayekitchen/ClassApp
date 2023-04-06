@@ -9,7 +9,7 @@ export const MeetUpList = () => {
     const [meetups, setMeetups] = useState([])
     useEffect(
         () => {
-            fetch(`http://localhost:8088/meetups?_expand=user&_expand=type&_expand=neighborhood`)
+            fetch(`http://localhost:8088/meetups?_expand=user&_expand=type&_expand=neighborhood&_sort=date`)
                 .then(response => response.json())
                 .then((data) => {
                     setMeetups(data)

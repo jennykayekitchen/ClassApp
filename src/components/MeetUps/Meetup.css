@@ -20,15 +20,22 @@
 .meetup-title {
     text-align: center;
     font-family: 'Spicy Rice', cursive;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .meetup-info-title {
     font-weight: bold;
+    
 }
 
 .meetup-info {
     padding: 10px;
+}
+
+
+.meetup-info-line {
+    display: flex;
+    
 }
 
 .meetup-list {
