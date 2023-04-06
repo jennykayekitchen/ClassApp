@@ -10,7 +10,7 @@ export const GenerateSavedList = () => {
     const [savedMeetups, setSavedMeetups] = useState([])
     useEffect(
         () => {
-            fetch(`http://localhost:8088/savedMeetup?_expand=user&_expand=meetup`)
+            fetch(`http://localhost:8088/savedMeetups?_expand=user&_expand=meetup`)
                 .then(response => response.json())
                 .then((data) => {
                     setSavedMeetups(data)
@@ -30,7 +30,7 @@ export const GenerateSavedList = () => {
 
     const handleUnsave = (clickEvent, savedMeetup) => {
         clickEvent.preventDefault()
-        return fetch(`http://localhost:8088/savedMeetup/${savedMeetup.id}`, {
+        return fetch(`http://localhost:8088/savedMeetups/${savedMeetup.id}`, {
             method: "DELETE"
         })
             .then(res => res.json())
