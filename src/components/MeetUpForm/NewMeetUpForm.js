@@ -83,10 +83,10 @@ export const NewMeetUpForm = () => {
 
     //new meet up form
     return <>
-            <div className="form-page">
             <div className="head-name">
                 <h1>Add a New Meet Up</h1>
             </div>
+            <div className="form-page">
             <form className="meetUpForm">
             <fieldset>
                 <div className="form-group">
