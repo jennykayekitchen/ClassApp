@@ -27,7 +27,8 @@ export const ManageMeetUps = () => {
 
     return (
         <div>
-        <h2>Manage My Meet Ups</h2>
+            <div className="head-name">
+        <h1>Manage Meet Ups</h1></div>
             {ClassAppUserObject.admin ? (
                 <div className="meetup-list">{meetups.map(meetup => <ManageIndividualMeetUp key={`meetup--${meetup.id}`} 
                 meetup = {meetup}
