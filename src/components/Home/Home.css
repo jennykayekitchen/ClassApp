@@ -1,0 +1,45 @@
+.head-name {
+    margin-top: 50px;
+    font-family: 'Spicy Rice', cursive;
+    text-align: center;
+    color: #1B4079;
+    text-shadow: 2px 2px 5px grey;
+}
+
+.intro-section {
+    background-color: whitesmoke;
+    padding: 10px;
+    margin-left: 15%;
+    margin-right: 15%;
+    box-shadow: 2px 2px 5px grey;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color:#1B4079;
+    font-size: 18px;
+    border-radius: 2px; 
+}
+
+.intro-text {
+    font-weight: bold;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 5%;
+}
+
+.intro-features {
+    text-align: center;
+}
+
+.profile-link {
+    background-color: #1B4079;
+    color: whitesmoke;
+    padding: 2px;
+    text-decoration: none;
+    box-shadow: 2px 2px 5px grey;
+    border-radius: 2px;
+}
+
+.profile-link:hover {
+    box-shadow: 2px 2px 5px black;
+    
+}

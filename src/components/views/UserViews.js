@@ -5,6 +5,7 @@ import { NewMeetUpForm } from "../MeetUpForm/NewMeetUpForm"
 //import { EditMeetUp } from "../MeetUps/EditMeetUpForm"
 import { ManageMeetUps } from "../MeetUps/ManageMeetUps"
 import "./Views.css"
+import { Home } from "../Home/Home"
 
 
 
@@ -13,19 +14,15 @@ export const UserViews = () => {
         <Routes>
             <Route path="/" element={
                 <>
-                    <div className="head-name">
-                        <h1>The Class App</h1>
-                    </div>
-
                     <Outlet />
                 </>
             }>
-
-                <Route path="/" element={ <MeetUpList /> } />
+                <Route path="/" element={<Home />} />
+                <Route path="/viewallmeetups" element={ <MeetUpList /> } />
                 <Route path="/newmeetup" element={ <NewMeetUpForm /> } />
                 <Route path="/viewsaved" element={ <GenerateSavedList /> } />
                 <Route path="/managemeetups" element={ <ManageMeetUps /> } />
-                {/* <Route path="/editmeetup" element={ <EditMeetUp /> } /> */}
+                
                 
             </Route>
         </Routes>

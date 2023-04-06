@@ -110,12 +110,13 @@ export const NewMeetUpForm = () => {
             <fieldset>
                 <div className="form-group">
                     <div>
-                        Meetup Type:
+                    <div className="meetuplabel">Meetup Type:</div>
                         {types.map((type) => {
                             return (
                                 <div key={type.id} className="radio">
                                     <label>
-                                        <input
+                                        <input 
+                                            className="radio"
                                             type="radio"
                                             name="type"
                                             value={type.id}
@@ -141,7 +142,7 @@ export const NewMeetUpForm = () => {
                         required autoFocus
                         type="text"
                         className="form-control"
-                        placeholder="Where are we meeting?"
+                        placeholder="Name of meeting location."
                         value={meetup.venue}
                         onChange={
                             (event) => {
@@ -159,7 +160,7 @@ export const NewMeetUpForm = () => {
                         required autoFocus
                         type="text"
                         className="form-control"
-                        placeholder="Enter the street address"
+                        placeholder="Address of meeting location"
                         value={meetup.address}
                         onChange={
                             (event) => {
@@ -191,7 +192,7 @@ export const NewMeetUpForm = () => {
             <fieldset>
                 <div className="form-group">
                     <div>
-                        Neighborhood:
+                    <div className="meetuplabel">Neighborhood:</div>
                         {neighborhoods.map((neighborhoods) => {
                             return (
                                 <div key={neighborhoods.id} className="radio">
@@ -221,7 +222,7 @@ export const NewMeetUpForm = () => {
                     <input
                         required autoFocus
                         type="date"
-                        className="form-control"
+                        className="form-date"
                         value={meetup.date}
                         onChange={
                             (event) => {
@@ -238,7 +239,7 @@ export const NewMeetUpForm = () => {
                     <input
                         required autoFocus
                         type="time"
-                        className="form-control"
+                        className="form-time"
                         value={meetup.time}
                         onChange={
                             (event) => {
@@ -255,7 +256,7 @@ export const NewMeetUpForm = () => {
                     <input
                         required autoFocus
                         type="text"
-                        className="form-description"
+                        className="form-control"
                         placeholder="What are we doing?"
                         value={meetup.description}
                         onChange={

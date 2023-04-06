@@ -10,25 +10,36 @@
     display: flex;
     flex-direction: column;
     width: 30%;
-    margin: 5px;
+    margin: 10px;
     justify-content: space-between;
-    background-color: #1B4079;
-    color: white;
+    background-color: whitesmoke;
+    color: #1B4079;
     box-shadow: 2px 2px 5px grey;
-    
+    padding: 5px;
+    border-radius: 2px;
 }
 .meetup-title {
     text-align: center;
     font-family: 'Spicy Rice', cursive;
-    font-size: 20px;
+    font-size: 30px;
+    background-color: #1B4079;
+    color: whitesmoke;
+    border-radius: 2px;
 }
 
 .meetup-info-title {
     font-weight: bold;
+    
 }
 
 .meetup-info {
     padding: 10px;
+}
+
+
+.meetup-info-line {
+    display: flex;
+    
 }
 
 .meetup-list {
@@ -36,4 +47,24 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.manage-buttons {
+    display: flex;
+    justify-content: space-between; 
+}
+
+button {
+    width: 100%;
+    border-radius: 2px;
+}
+
+button:enabled:hover {
+    background-color: #2862B8;
+    color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button:disabled {
+    background-color: lightgray;
 }

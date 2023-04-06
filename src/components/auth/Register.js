@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom";
 import "./Login.css"
 
 export const Register = (props) => {
@@ -45,8 +46,8 @@ export const Register = (props) => {
                 // Duplicate email and access doesn't match. 
                 else if (response.length > 0 && user.accessCode !== "SummerOf61") {
                     window.alert("Account with that email address already exists and you did not provide the correct access code. Please try again.")
-                    navigate("/register")               
-                } 
+                    navigate("/register")
+                }
                 //Incorrect admin access code. 
                 else if (user.isAdmin === true && user.accessCode !== "TheChosenOnes") {
                     window.alert("You did not provide the correct access code for admin rights. Please try again.")
@@ -70,7 +71,7 @@ export const Register = (props) => {
     }
 
     const updateUser = (evt) => {
-        const copy = {...user}
+        const copy = { ...user }
         copy[evt.target.id] = evt.target.value
         setUser(copy)
     }
@@ -78,39 +79,43 @@ export const Register = (props) => {
     return (
         <main style={{ textAlign: "center" }}>
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for the Class App</h1>
-                <fieldset>
-                    <label htmlFor="fullName"> Full Name </label>
-                    <input onChange={updateUser}
-                           type="text" id="fullName" className="form-control"
-                           placeholder="Enter your name." required autoFocus />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="email"> Email Address </label>
-                    <input onChange={updateUser}
-                        type="email" id="email" className="form-control"
-                        placeholder="Enter your email address" required />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="email"> Access Code </label>
-                    <input onChange={updateUser} 
-                        type="text" id="accessCode" className="form-control"
-                        placeholder="Enter the access code provided by your admin." required />
-                </fieldset>
-                <fieldset>
-                    <input onChange={(evt) => {
-                        const copy = {...user}
-                        copy.isAdmin = evt.target.checked
-                        setUser(copy)
-                    }}
-                        type="checkbox" id="isAdmin" />
-                    <label htmlFor="email"> I am an admin. </label>
-                </fieldset>
-                
-                <fieldset>
-                    <button type="submit"> Register </button>
-                </fieldset>
+                <div className="head-name"><h1 className="h3 mb-3 font-weight-normal">Please Register for the Class App</h1></div>
+                <div className="register-form">
+                    <fieldset>
+                        <label htmlFor="fullName"> Full Name </label>
+                        <input onChange={updateUser}
+                            type="text" id="fullName" className="form-control"
+                            placeholder="Enter your name." required autoFocus />
+                    </fieldset>
+                    <fieldset>
+                        <label htmlFor="email"> Email Address </label>
+                        <input onChange={updateUser}
+                            type="email" id="email" className="form-control"
+                            placeholder="Enter your email address." required />
+                    </fieldset>
+                    <fieldset>
+                        <label htmlFor="email"> Access Code </label>
+                        <input onChange={updateUser}
+                            type="text" id="accessCode" className="form-control"
+                            placeholder="Enter the access code provided by the site admin." required />
+                    </fieldset>
+                    <fieldset>
+                        <input onChange={(evt) => {
+                            const copy = { ...user }
+                            copy.isAdmin = evt.target.checked
+                            setUser(copy)
+                        }}
+                            type="checkbox" id="isAdmin" />
+                        <label htmlFor="email"> I am an admin. </label>
+                    </fieldset>
+
+                    <fieldset>
+                        <button type="submit"> Register </button>
+                    </fieldset>
+                </div>
+                <Link to="/login" className="link--login">Return to login page.</Link>
             </form>
+
         </main>
     )
 }
