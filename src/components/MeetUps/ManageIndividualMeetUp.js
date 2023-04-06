@@ -169,39 +169,39 @@ export const ManageIndividualMeetUp = ({ meetup, meetups, setMeetups, meetupId, 
                             onChange={handleTitleChange} />
                     </div>
                     <div>
-                        <div className="meetup-info-title">Organizer: </div> {meetup?.user?.fullName} 
+                        <div className="meetup-info-title">Organizer: </div> {meetup?.user?.fullName}
                     </div>
                     <div>
                         <div>
-                        <div className="meetup-info-title">Date:</div> {meetup.date}</div>
+                            <div className="meetup-info-title">Date:</div> {meetup.date}</div>
                         <input type="date"
                             value={editedDate}
                             onChange={handleDateChange} />
                     </div>
                     <div>
                         <div>
-                        <div className="meetup-info-title">Time:</div> {meetup.time}</div>
+                            <div className="meetup-info-title">Time:</div> {meetup.time}</div>
                         <input type="time"
                             value={editedTime}
                             onChange={handleTimeChange} />
                     </div>
                     <div>
                         <div>
-                        <div className="meetup-info-title">Location:</div> {meetup.venue}</div>
+                            <div className="meetup-info-title">Location:</div> {meetup.venue}</div>
                         <input type="text"
                             value={editedVenue}
                             onChange={handleVenueChange} />
                     </div>
                     <div>
-                    <div>
-                        <div className="meetup-info-title">Address:</div> {meetup.address}</div>
+                        <div>
+                            <div className="meetup-info-title">Address:</div> {meetup.address}</div>
                         <input type="text"
                             value={editedAddress}
                             onChange={handleAddressChange} />
                     </div>
                     <div>
                         <div>
-                        <div className="meetup-info-title">Meetup Neighborhood: </div>{meetup.neighborhood.name}</div>
+                            <div className="meetup-info-title">Meetup Neighborhood: </div>{meetup.neighborhood.name}</div>
                         <select
                             className="form-control"
                             value={editedNeighborhoodId}
@@ -218,7 +218,7 @@ export const ManageIndividualMeetUp = ({ meetup, meetups, setMeetups, meetupId, 
 
                     <div>
                         <div>
-                        <div className="meetup-info-title">Meetup Type:</div> {meetup.type.name}</div>
+                            <div className="meetup-info-title">Meetup Type:</div> {meetup.type.name}</div>
                         <select
                             className="form-control"
                             value={editedTypeId}
@@ -235,14 +235,14 @@ export const ManageIndividualMeetUp = ({ meetup, meetups, setMeetups, meetupId, 
 
                     <div>
                         <div>
-                        <div className="meetup-info-title">Meetup Description: </div> {meetup.description}</div>
+                            <div className="meetup-info-title">Meetup Description: </div> {meetup.description}</div>
                         <input type="text"
                             value={editedDescription}
                             onChange={handleDescriptionChange} />
                     </div>
                     <div>
                         <div>
-                        <div className="meetup-info-title">Venue Link: </div> {meetup.link}</div>
+                            <div className="meetup-info-title">Venue Link: </div> {meetup.link}</div>
                         <input type="text"
                             value={editedLink}
                             onChange={handleLinkChange} />
@@ -253,6 +253,7 @@ export const ManageIndividualMeetUp = ({ meetup, meetups, setMeetups, meetupId, 
                     <>
                         <div className="meetup-title">{meetup.title}</div>
                         <div className="meetup-info">
+                            <div><div className="meetup-info-title">Title:</div> {meetup?.title} </div>
                             <div><div className="meetup-info-title">Organizer:</div> {meetup?.user?.fullName} </div>
                             <div><div className="meetup-info-title">Date:</div> {meetup.date}</div>
                             <div><div className="meetup-info-title">Time:</div> {meetup.time}</div>
