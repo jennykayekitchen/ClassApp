@@ -1,4 +1,3 @@
-//import { type } from "@testing-library/user-event/dist/type"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "./Form.css"
@@ -224,6 +223,7 @@ export const NewMeetUpForm = () => {
                         type="date"
                         className="form-date"
                         value={meetup.date}
+                        format='MM-dd-yyyy'
                         onChange={
                             (event) => {
                                 const copy = { ...meetup }

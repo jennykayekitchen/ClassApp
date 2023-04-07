@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react"
+import moment from "moment"
 import "./Meetup.css"
 
 export const IndividualSavedMeetup = ({ mySavedMeetup }) => {
-
+    let meetupDate = moment(mySavedMeetup?.meetup?.date).format('MM-DD-YYYY')
+    let savedMeetupTime = mySavedMeetup?.meetup?.time
+    let meetupTime = moment(savedMeetupTime, 'HH:mm').format('hh:mm a')
     return <>
         <div className="meetup-title">{mySavedMeetup.meetup?.title}</div>
         <div className="meetup-info">
             <div className="meetup-info-line"><div className="meetup-info-title">Organizer:</div>&nbsp;{mySavedMeetup?.user?.fullName}</div>
-            <div className="meetup-info-line"><div className="meetup-info-title">Date & Time:</div>&nbsp;{mySavedMeetup?.meetup?.date} at {mySavedMeetup?.meetup?.time}</div>
+            <div className="meetup-info-line"><div className="meetup-info-title">Date & Time:</div>&nbsp;{meetupDate} at {meetupTime}</div>
             {/* <div className="meetup-info-line"><div className="meetup-info-title">Neighborhood:</div>&nbsp;{neighborhood.name}</div> */}
             <div className="meetup-info-line"><div className="meetup-info-title">Location:</div>&nbsp;{mySavedMeetup?.meetup?.venue}</div>
             <div>{mySavedMeetup.meetup?.address}</div>
