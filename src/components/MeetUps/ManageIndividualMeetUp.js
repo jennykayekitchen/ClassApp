@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
+import moment from "moment"
 import "./Meetup.css"
-import { useNavigate } from "react-router-dom"
+
 
 export const ManageIndividualMeetUp = ({ meetup, meetups, setMeetups, meetupId, }) => {
-    const navigate = useNavigate()
+    let meetupDate = moment(meetup.date).format('MM-DD-YYYY')
+    let meetupTime = moment(meetup.time, 'HH:mm').format('hh:mm a')
 
 
     // says whether or not the meetup is in "edit" mode, set to false when the page loads and will turn to true if user clicks Update Meetup
@@ -173,14 +175,14 @@ export const ManageIndividualMeetUp = ({ meetup, meetups, setMeetups, meetupId, 
                     </div>
                     <div>
                         <div>
-                            <div className="meetup-info-title">Date:</div> {meetup.date}</div>
+                            <div className="meetup-info-title">Date:</div> {meetupDate}</div>
                         <input type="date"
                             value={editedDate}
                             onChange={handleDateChange} />
                     </div>
                     <div>
                         <div>
-                            <div className="meetup-info-title">Time:</div> {meetup.time}</div>
+                            <div className="meetup-info-title">Time:</div> {meetupTime}</div>
                         <input type="time"
                             value={editedTime}
                             onChange={handleTimeChange} />
@@ -254,7 +256,7 @@ export const ManageIndividualMeetUp = ({ meetup, meetups, setMeetups, meetupId, 
                         <div className="meetup-title">{meetup.title}</div>
                         <div className="meetup-info">                    
                             <div className="meetup-info-line"><div className="meetup-info-title">Organizer:</div>&nbsp;{meetup?.user?.fullName}</div>
-                            <div className="meetup-info-line"><div className="meetup-info-title">Date & Time:</div>&nbsp;{meetup.date} at {meetup.time}</div>                            
+                            <div className="meetup-info-line"><div className="meetup-info-title">Date & Time:</div>&nbsp;{meetupDate} at {meetupTime}</div>                            
                             <div className="meetup-info-line"><div className="meetup-info-title">Neighborhood:</div>&nbsp;{meetup?.neighborhood?.name}</div>
                             <div className="meetup-info-line"><div className="meetup-info-title">Location:</div>&nbsp;{meetup.venue}</div>
                             <div>{meetup.address}</div>

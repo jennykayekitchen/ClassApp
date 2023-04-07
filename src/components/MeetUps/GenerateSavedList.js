@@ -10,7 +10,7 @@ export const GenerateSavedList = () => {
     const [savedMeetups, setSavedMeetups] = useState([])
     useEffect(
         () => {
-            fetch(`http://localhost:8088/savedMeetups?_expand=user&_expand=meetup`)
+            fetch(`http://localhost:8088/savedMeetups?_expand=user&_expand=meetup&_sort=date`)
                 .then(response => response.json())
                 .then((data) => {
                     setSavedMeetups(data)
