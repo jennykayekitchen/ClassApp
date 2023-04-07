@@ -11,11 +11,10 @@ Plus, with a special access code, only students in Cohort-61 will be able to reg
 
 ## Features
 
-- Create
-- Read
-- Update
-- Delete
-- Access Code
+- Add a meeetup for classmates specifying the time, date, location, and type
+- View all upcoming meetups and save any that interest you
+- Edit or remove any meetup as an admin, or any meetup you've created as user
+- Website registration resctricted by an exlusive access code to ensure security
 
 
 ## Demo
@@ -38,18 +37,19 @@ Plus, with a special access code, only students in Cohort-61 will be able to reg
 ## Installation
 
 Installation instructions
+Clone down this repository. You will need node and npm installed on your machine.
 
 ## Project Goals
 
-- Goal
-- Goal
-- Goal
+- Manage version control through GitHub
+- Exercise front-end while learning back-end
+- Create a site that would be practical and useful to our class
 
 ## Lessons Learned
 
-Lesson 1
-Lesson 2
-Lesson 3
+While we worked on this project during our time at Nashville Software School, it wasn't an assignment. This was a fun passsion project for us. We wanted to practice building a web application as a team, implementing CRUD functionality, and creating a user-focused experience. This was also an opportunity for us to keep flexing our JS and React muscles while learning C# and .Net in class.
+
+As we've been in school remotely, we love creating opportunities for local students to meet and build relationships with one another whether it be coding at a coffeeshop, celebrating our wins at a brewery, or just enjoying the company on a hike. Users of our application should be able to easily create a meetup, view all upcoming meetups, and save their favorites for quick reference. Working as a team enabled us to brainstorm methods, usually trying several before landing on the best implementation for our app. Building this project outside of class also challenged us to communicate clearly and effectively as we were often working at different times. It strengthened our understanding of the code, each other, and ourselves. We're proud to present our ClassApp.
 
 
 ## Acknowledgements
