@@ -18,12 +18,12 @@ Plus, with a special access code, only students in Cohort-61 will be able to reg
 
 
 ## Demo
-- Feature
-![](filename.gif)
-- Feature
-![](filename.gif)
-- Feature
-![](filename.gif)
+- Create a meetup
+![](https://github.com/jennykayekitchen/ClassApp/blob/main/Add%20a%20meetup.gif)
+- Edit and delete a meetup
+![](https://github.com/jennykayekitchen/ClassApp/blob/main/Edit%20or%20Delete%20Meetup.gif)
+- Save a meetup
+![](https://github.com/jennykayekitchen/ClassApp/blob/main/Save%20Meetup.gif)
 
 
 ## Tech Stack
