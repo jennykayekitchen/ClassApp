@@ -54,7 +54,7 @@ As we've been in school remotely, we love creating opportunities for local stude
 
 ## Acknowledgements
 
- - Our thanks to Pritesh Zaver, Kaci Wooldridge, and Shane Hurtado for their help along the way! It's true that teamwork makes the dream work!
+ - Our thanks to Pritesh Zaver, Kaci Wooldridge, and Shane Hurtado for the help along the way! It's true - teamwork makes the dream work!
  - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
  - [Awesome README](https://github.com/matiassingers/awesome-readme)
  - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
