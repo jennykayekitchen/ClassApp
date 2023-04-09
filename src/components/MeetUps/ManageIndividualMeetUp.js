@@ -4,6 +4,7 @@ import "./Meetup.css"
 
 
 export const ManageIndividualMeetUp = ({ meetup, meetups, setMeetups, meetupId, }) => {
+    //formats the date and time to be readable using the moment extension
     let meetupDate = moment(meetup.date).format('MM-DD-YYYY')
     let meetupTime = moment(meetup.time, 'HH:mm').format('hh:mm a')
 
@@ -17,6 +18,7 @@ export const ManageIndividualMeetUp = ({ meetup, meetups, setMeetups, meetupId, 
         setEditMode(true)
     }
 
+    //gets the info for the meetup type
     const [types, setTypes] = useState([])
     useEffect(
         () => {
@@ -28,7 +30,8 @@ export const ManageIndividualMeetUp = ({ meetup, meetups, setMeetups, meetupId, 
         },
         []
     )
-
+    
+    //gets the info for the meetup neighborhood
     const [neighborhoods, setNeighborhoods] = useState([])
     useEffect(
         () => {
@@ -101,6 +104,7 @@ export const ManageIndividualMeetUp = ({ meetup, meetups, setMeetups, meetupId, 
         setEditedNeighborhoodId(meetup.neighborhoodId)
         setEditedDescription(meetup.description)
         setEditedLink(meetup.link)
+        
         //exits edit mode
         setEditMode(false)
     }

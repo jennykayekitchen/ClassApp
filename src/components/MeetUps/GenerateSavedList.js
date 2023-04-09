@@ -7,6 +7,7 @@ export const GenerateSavedList = () => {
     const localClassAppUser = localStorage.getItem("class_app_user")
     const ClassAppUserObject = JSON.parse(localClassAppUser)
 
+    //gets the saved meetups with the meetup info and info for the user who saved the meetup
     const [savedMeetups, setSavedMeetups] = useState([])
     useEffect(
         () => {
@@ -18,16 +19,20 @@ export const GenerateSavedList = () => {
         },
         []
     )
+
+    //loops through the savedmeetups and pulls out the ones that the user saved
     const [mySavedMeetups, setMySavedMeetups] = useState([])
     useEffect(() => {
-        const mySavedMeetups = savedMeetups.filter(meetup => {
-            return meetup.userId === ClassAppUserObject.id
-        })
+        const mySavedMeetups = savedMeetups.filter(savedMeetup => 
+            savedMeetup.userId === ClassAppUserObject.id
+        )
+        
         setMySavedMeetups(mySavedMeetups)
     },
         [savedMeetups]
     )
 
+    //deletes the savedmeetup from the savedmeetup list, then updates the list
     const handleUnsave = (clickEvent, savedMeetup) => {
         clickEvent.preventDefault()
         return fetch(`http://localhost:8088/savedMeetups/${savedMeetup.id}`, {
@@ -52,7 +57,7 @@ export const GenerateSavedList = () => {
             <div className="meetup-list">{mySavedMeetups.map(mySavedMeetup =>
                 <>
                     <div className="individual-meetup"><IndividualSavedMeetup key={`meetup--${mySavedMeetup.meetup.id}`}
-                        mySavedMeetup={mySavedMeetup}
+                        mySavedMeetup={mySavedMeetup}                        
                     />
                         <button
                             onClick={(clickEvent) =>
