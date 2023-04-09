@@ -52,7 +52,7 @@ export const MeetUpList = () => {
                 })
                     .then(res => res.json())
                     .then(() => {
-                        //pulls the savedMeetups from the database and updates that state
+                        //pulls the savedMeetups from the database and updates that state to update the page
                         fetch(`http://localhost:8088/savedMeetups`)
                             .then(response => response.json())
                             .then((data) => {
@@ -72,7 +72,7 @@ export const MeetUpList = () => {
                 <div className="individual-meetup"><IndividualMeetUpForList key={`meetup--${meetup.id}`} 
                     meetup = {meetup}
                     />
-                    {/*maps through the saved meetups and if the meetup is already*/}
+                    {/*maps through the saved meetups and if the meetup is already there the save button is disabled*/}
                     {savedMeetups.some(savedMeetup => savedMeetup.meetupId === meetup.id && savedMeetup.userId === ClassAppUserObject.id)
                         ? <button disabled>Meetup Saved</button>
                         : <button
@@ -81,8 +81,7 @@ export const MeetUpList = () => {
                             Save Meetup
                         </button>
                     }         
-                </div>
-        
+                </div>        
             </>
         )}
         </div>
