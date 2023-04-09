@@ -36,8 +36,9 @@ Plus, with a special access code, only students in Cohort-61 will be able to reg
 
 ## Installation Instructions
 
-Clone down the [ClassApp-API](https://github.com/jennykayekitchen/ClassApp-API).
-Clone down this repository. You will need node and npm installed on your machine.
+- Clone down the [ClassApp-API](https://github.com/jennykayekitchen/ClassApp-API).
+- Clone down this repository. 
+- Ensure node and npm are installed on your machine.
 
 ## Project Goals
 
