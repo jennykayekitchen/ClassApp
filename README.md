@@ -11,7 +11,7 @@ Plus, with a special access code, only students in Cohort-61 will be able to reg
 
 ## Features
 
-- Add a meeetup for classmates specifying the time, date, location, and type
+- Add a meetup for classmates specifying the time, date, location, and type
 - View all upcoming meetups and save any that interest you
 - Edit or remove any meetup as an admin, or any meetup you've created as user
 - Website registration resctricted by an exlusive access code to ensure security
@@ -34,9 +34,9 @@ Plus, with a special access code, only students in Cohort-61 will be able to reg
 - CSS
 
 
-## Installation
+## Installation Instructions
 
-Installation instructions
+Clone down the [ClassApp-API](https://github.com/jennykayekitchen/ClassApp-API).
 Clone down this repository. You will need node and npm installed on your machine.
 
 ## Project Goals
