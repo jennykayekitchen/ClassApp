@@ -25,6 +25,8 @@ Plus, with a special access code, only students in Cohort-61 will be able to reg
 - Save a meetup
 ![](https://github.com/jennykayekitchen/ClassApp/blob/main/Save%20Meetup.gif)
 
+## ERD
+<img width="526" alt="ERD" src="https://user-images.githubusercontent.com/114883885/230787268-d30afd53-de6e-401d-bdda-627d0b0325d5.png">
 
 ## Tech Stack
 
