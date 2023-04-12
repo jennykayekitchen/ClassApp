@@ -55,8 +55,8 @@ export const GenerateSavedList = () => {
                 <h1>Saved Meetups</h1>
             </div>
             <div className="meetup-list">{mySavedMeetups.map(mySavedMeetup =>
-                <>
-                    <div className="individual-meetup"><IndividualSavedMeetup key={`meetup--${mySavedMeetup.meetup.id}`}
+                
+                    <div className="individual-meetup" key={mySavedMeetup.meetup.id}><IndividualSavedMeetup key={`meetup--${mySavedMeetup.meetup.id}`}
                         mySavedMeetup={mySavedMeetup}                        
                     />
                         <button
@@ -66,7 +66,7 @@ export const GenerateSavedList = () => {
                             Unsave Meetup
                         </button>
                     </div>
-                </>
+                
 
             )}
             </div>

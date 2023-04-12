@@ -163,7 +163,7 @@ export const ManageIndividualMeetUp = ({ meetup, meetups, setMeetups, meetupId, 
     const ClassAppUserObject = JSON.parse(localClassAppUser)
 
     return <>
-        <div className="individual-meetup">
+        <div className="individual-meetup" key={meetup.id}>
             {editMode ? (
                 <>
                     <div>
