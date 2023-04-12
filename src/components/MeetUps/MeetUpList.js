@@ -67,22 +67,22 @@ export const MeetUpList = () => {
             <h1>All Meetups</h1>
         </div>
         {/* sends info for each individual meetup to the module so that it has access to the info */}
+        
         <div className="meetup-list">{meetups.map(meetup => 
-            <>
-                <div className="individual-meetup"><IndividualMeetUpForList key={`meetup--${meetup.id}`} 
-                    meetup = {meetup}
-                    />
+            
+                <div className="individual-meetup" key={`meetup--${meetup.id}`}> <IndividualMeetUpForList key={meetup.id}
+                meetup={meetup} />
                     {/*maps through the saved meetups and if the meetup is already there the save button is disabled*/}
                     {savedMeetups.some(savedMeetup => savedMeetup.meetupId === meetup.id && savedMeetup.userId === ClassAppUserObject.id)
                         ? <button disabled>Meetup Saved</button>
-                        : <button
+                        : <button 
                             onClick={(clickEvent) => handleSave(clickEvent, meetup.id)}
                             className="meetup-saved-button">
                             Save Meetup
                         </button>
                     }         
                 </div>        
-            </>
+            
         )}
         </div>
     </>

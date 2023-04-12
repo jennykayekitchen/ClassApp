@@ -13,16 +13,16 @@ export const NewMeetUpForm = () => {
     //sets up the correct default properties we're creating to the initial state of the tag object
     const [meetup, update] = useState({
         "title": "",
-        "typeId": null,
+        "typeId": "",
         "venue": "",
         "address": "",
-        "neighborhoodId": null,
+        "neighborhoodId": "",
         "link": "",
-        "date": null,
-        "time": null,
+        "date": "",
+        "time": "",
         "isSaved": false,
         "description": "",
-        "userId": null,
+        "userId": "",
     })
     
 

@@ -44,7 +44,7 @@ export const ManageMeetUps = () => {
                 </div> 
             )
             : (
-            <div className="meetup-list">{myMeetups.map(meetup => <ManageIndividualMeetUp key={`meetup--${meetup.id}`} 
+            <div className="meetup-list">{myMeetups.map(meetup => <ManageIndividualMeetUp key={`meetup--${meetup.meetupId}`} 
                 meetup = {meetup}
                 meetups = {meetups}
                 setMeetups = {setMeetups}
